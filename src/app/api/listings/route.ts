@@ -21,7 +21,6 @@ export async function POST(request: Request) {
       userId: currentUser.id,
     },
   });
-  console.log(listing);
 
   return NextResponse.json(listing);
 }

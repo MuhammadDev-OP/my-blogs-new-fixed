@@ -3,9 +3,22 @@
 import React from "react";
 import Wrapper from "../shared/Wrapper";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { Listing } from "@prisma/client";
+import { SafeUser } from "@/app/types";
 
-const Hero = () => {
+interface HeroCardProps {
+  data: Listing;
+  onAction?: (id: string) => void;
+  actionId?: string;
+  currentUser?: SafeUser | null;
+}
+
+const Hero: React.FC<HeroCardProps> = ({
+  data,
+  onAction,
+  actionId,
+  currentUser,
+}) => {
   return (
     <>
       <Wrapper>

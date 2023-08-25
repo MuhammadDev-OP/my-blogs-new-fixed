@@ -28,10 +28,9 @@ export default async function RootLayout({
           <ToastProvider />
           <Header currentUser={currentUser} />
           <RegisterModal />
-          <BlogModal />
           <LoginModal />
+          <BlogModal />
         </ClientOnly>
-
         {children}
       </body>
     </html>

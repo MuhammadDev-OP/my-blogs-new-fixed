@@ -1,31 +1,25 @@
-"use client";
-
 import Image from "next/image";
 import Hero from "./components/widgets/Hero";
 import ClientOnly from "./components/ClientOnly";
 import getListings from "./actions/getListings";
 import Wrapper from "./components/shared/Wrapper";
+import { Container } from "postcss";
+import getCurrentUser from "./actions/getCurrentUser";
 
 const Home = async () => {
   const listings = await getListings();
-
-  if (listings.length === 0) {
-    return (
-      <ClientOnly>
-        <div className="justify-center font-bold mt-10">No Blogs</div>
-      </ClientOnly>
-    );
-  }
+  const currentUser = await getCurrentUser();
 
   return (
     <>
       <ClientOnly>
         <div>
-          {listings.map((listings: any) => {
-            return <div>{listings.title}</div>;
+          {listings.map((listing: any) => {
+            return (
+              <Hero currentUser={currentUser} key={listing.id} data={listing} />
+            );
           })}
         </div>
-        <Hero />
       </ClientOnly>
     </>
   );

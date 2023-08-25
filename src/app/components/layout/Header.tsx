@@ -10,17 +10,16 @@ import Avatar from "../shared/Avatar";
 import MenuItem from "../shared/MenuItem";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 import useLoginModal from "@/app/hooks/useLoginModal";
-import { User } from "@prisma/client";
 import { signOut } from "next-auth/react";
 import { SafeUser } from "@/app/types";
 import { BiAddToQueue } from "react-icons/bi";
 import useBlogModal from "@/app/hooks/useBlogModal";
 
-interface NavbarProps {
+interface HeaderProps {
   currentUser?: SafeUser | null;
 }
 
-const Header: React.FC<NavbarProps> = ({ currentUser }) => {
+const Header: React.FC<HeaderProps> = ({ currentUser }) => {
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
   const blogModal = useBlogModal();
