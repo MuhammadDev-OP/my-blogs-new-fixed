@@ -22,17 +22,19 @@ const Home = async () => {
             sapiente ipsam a laudantium reiciendis.
           </p>
         </div>
-        <div className="grid">
-          {listings.map((listing: any) => {
-            return (
-              <Hero
-                currentUser={currentUser}
-                key={listing.id}
-                data={listing}
-                nameof={listing.name}
-              />
-            );
-          })}
+        <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-5 lg:px-2">
+          <div className="grid gap-8 lg:grid-cols-3 md:grid-cols-2 ">
+            {listings.map((listing: any) => {
+              return (
+                <Hero
+                  currentUser={currentUser}
+                  key={listing.id}
+                  data={listing}
+                  nameof={listing.name}
+                />
+              );
+            })}
+          </div>
         </div>
       </ClientOnly>
     </>
