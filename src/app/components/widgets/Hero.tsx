@@ -3,14 +3,16 @@
 import React from "react";
 import Wrapper from "../shared/Wrapper";
 import Image from "next/image";
-import { Listing } from "@prisma/client";
+import { Listing, User } from "@prisma/client";
 import { SafeUser } from "@/app/types";
+import { useRouter } from "next/router";
 
 interface HeroCardProps {
   data: Listing;
   onAction?: (id: string) => void;
   actionId?: string;
   currentUser?: SafeUser | null;
+  nameof: User;
 }
 
 const Hero: React.FC<HeroCardProps> = ({
@@ -18,20 +20,12 @@ const Hero: React.FC<HeroCardProps> = ({
   onAction,
   actionId,
   currentUser,
+  nameof,
 }) => {
   return (
     <>
       <Wrapper>
         <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-0">
-          <div className="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
-            <h2 className="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900 ">
-              Sample Blogs
-            </h2>
-            <p className="font-light text-gray-500 sm:text-xl">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
-              sapiente ipsam a laudantium reiciendis.
-            </p>
-          </div>
           <div className="grid gap-8 lg:grid-cols-2">
             <article className="p-6 bg-white rounded-lg border border-gray-200 shadow-md">
               <div className="flex justify-between items-center mb-5 text-gray-500">
@@ -52,14 +46,16 @@ const Hero: React.FC<HeroCardProps> = ({
                   Article
                 </span>
               </div>
-              <div className="mb-5">
-                <span className="relative max-w-full">
-                  <img className="rounded-lg " src="/blog1.jpg" alt="" />
-                </span>
+              <div className=" aspect-square  w-full relative overflow-hidden rounded-xl mb-5">
+                <img
+                  className="object-cover h-full w-full group-hover:scale-110 transition"
+                  src={data.imageSrc}
+                  alt="image"
+                />
               </div>
 
               <h2 className="mb-2 cursor-pointer text-2xl font-bold tracking-tight text-gray-900 ">
-                <a>How to quickly deploy a static website</a>
+                <a>{data.title}</a>
               </h2>
               <div className="flex justify-between items-center">
                 <div className="flex items-center space-x-4">
@@ -68,7 +64,7 @@ const Hero: React.FC<HeroCardProps> = ({
                     src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
                     alt="MuhammadKharkovavatar"
                   />
-                  <span className="font-medium ">Mohd B.</span>
+                  <span className="font-medium ">{nameof?.name}</span>
                 </div>
                 <a className="inline-flex cursor-pointer items-center font-medium text-primary-600 hover:underline">
                   Learn More

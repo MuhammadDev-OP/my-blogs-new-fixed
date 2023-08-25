@@ -11,13 +11,14 @@ export async function POST(request: Request) {
   }
 
   const body = await request.json();
-  const { title, description, imageSrc } = body;
+  const { title, description, imageSrc, name } = body;
 
   const listing = await prisma.listing.create({
     data: {
       title,
       description,
       imageSrc,
+      name,
       userId: currentUser.id,
     },
   });

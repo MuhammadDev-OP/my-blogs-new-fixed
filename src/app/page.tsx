@@ -13,10 +13,24 @@ const Home = async () => {
   return (
     <>
       <ClientOnly>
-        <div>
+        <div className="mx-auto mt-10 max-w-screen-sm text-center lg:mb-16 mb-8">
+          <h2 className="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900 ">
+            Sample Blogs
+          </h2>
+          <p className="font-light text-gray-500 sm:text-xl">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
+            sapiente ipsam a laudantium reiciendis.
+          </p>
+        </div>
+        <div className="grid">
           {listings.map((listing: any) => {
             return (
-              <Hero currentUser={currentUser} key={listing.id} data={listing} />
+              <Hero
+                currentUser={currentUser}
+                key={listing.id}
+                data={listing}
+                nameof={listing.name}
+              />
             );
           })}
         </div>
