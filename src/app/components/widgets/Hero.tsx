@@ -5,8 +5,8 @@ import Wrapper from "../shared/Wrapper";
 import Image from "next/image";
 import { Listing, User } from "@prisma/client";
 import { SafeUser } from "@/app/types";
-import { useRouter } from "next/navigation";
 import ClapButton from "../shared/ClapButton";
+import { useRouter } from "next/navigation";
 
 interface HeroCardProps {
   data: Listing;
@@ -27,10 +27,7 @@ const Hero: React.FC<HeroCardProps> = ({
   return (
     <>
       <Wrapper>
-        <article
-          onClick={() => router.push(`/listings/${data.id}`)}
-          className="p-6 bg-white rounded-lg border border-gray-200 shadow-md"
-        >
+        <article className="p-6 bg-white rounded-lg border border-gray-200 shadow-md">
           <div className="flex justify-between items-center mb-5 text-gray-500">
             <span className="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded">
               <svg
@@ -74,7 +71,10 @@ const Hero: React.FC<HeroCardProps> = ({
               />
               <span className="font-medium ">{nameof?.name}</span>
             </div>
-            <a className="inline-flex cursor-pointer items-center font-medium text-primary-600 hover:underline">
+            <a
+              onClick={() => router.push(`/Lisitngs/${data.id}`)}
+              className="inline-flex cursor-pointer items-center font-medium text-primary-600 hover:underline"
+            >
               Learn More
               <svg
                 className="ml-2 w-4 h-4"

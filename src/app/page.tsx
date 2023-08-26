@@ -3,6 +3,7 @@ import ClientOnly from "./components/ClientOnly";
 import getListings from "./actions/getListings";
 
 import getCurrentUser from "./actions/getCurrentUser";
+import { useRouter } from "next/navigation";
 
 const Home = async () => {
   const listings = await getListings();
