@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Listing, User } from "@prisma/client";
 import { SafeUser } from "@/app/types";
 import { useRouter } from "next/router";
+import ClapButton from "../shared/ClapButton";
 
 interface HeroCardProps {
   data: Listing;
@@ -43,10 +44,11 @@ const Hero: React.FC<HeroCardProps> = ({
               </svg>
               Article
             </span>
+            <ClapButton listingId={data.id} currentUser={currentUser} />
           </div>
           <div className=" aspect-square relative overflow-hidden rounded-xl mb-5">
             <img
-              className="object-cover h-full w-full"
+              className="object-cover h-full w-full group-hover:scale-110 transition"
               src={data.imageSrc}
               alt="image"
             />

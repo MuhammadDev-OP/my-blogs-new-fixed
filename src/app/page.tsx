@@ -1,9 +1,7 @@
-import Image from "next/image";
 import Hero from "./components/widgets/Hero";
 import ClientOnly from "./components/ClientOnly";
 import getListings from "./actions/getListings";
-import Wrapper from "./components/shared/Wrapper";
-import { Container } from "postcss";
+
 import getCurrentUser from "./actions/getCurrentUser";
 
 const Home = async () => {
