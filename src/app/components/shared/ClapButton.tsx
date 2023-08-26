@@ -3,6 +3,7 @@
 import { PiHandsClappingFill, PiHandsClappingThin } from "react-icons/pi";
 
 import { SafeUser } from "@/app/types";
+import useClap from "@/app/hooks/useClap";
 
 interface ClapButtonProps {
   listingId: string;
@@ -10,17 +11,14 @@ interface ClapButtonProps {
 }
 
 const ClapButton: React.FC<ClapButtonProps> = ({ listingId, currentUser }) => {
-  //   const { hasFavorited, toggleFavorite } = useClap({
-  //     listingId,
-  //     currentUser,
-  //   });
-  const hasClaped = false;
-
-  const toggleFavorite = () => {};
+  const { hasClaped, toggleClap } = useClap({
+    listingId,
+    currentUser,
+  });
 
   return (
     <div
-      onClick={toggleFavorite}
+      onClick={toggleClap}
       className="
         relative
         hover:opacity-80
