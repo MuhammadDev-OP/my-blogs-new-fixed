@@ -5,14 +5,14 @@ import Wrapper from "../shared/Wrapper";
 import Image from "next/image";
 import { Listing, User } from "@prisma/client";
 import { SafeUser } from "@/app/types";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import ClapButton from "../shared/ClapButton";
 
 interface HeroCardProps {
   data: Listing;
   onAction?: (id: string) => void;
   actionId?: string;
-  currentUser?: SafeUser | null;
+  currentUser?: SafeUser | any;
   nameof: User;
 }
 
@@ -23,10 +23,14 @@ const Hero: React.FC<HeroCardProps> = ({
   currentUser,
   nameof,
 }) => {
+  const router = useRouter();
   return (
     <>
       <Wrapper>
-        <article className="p-6 bg-white rounded-lg border border-gray-200 shadow-md">
+        <article
+          onClick={() => router.push(`/listings/${data.id}`)}
+          className="p-6 bg-white rounded-lg border border-gray-200 shadow-md"
+        >
           <div className="flex justify-between items-center mb-5 text-gray-500">
             <span className="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded">
               <svg
@@ -57,6 +61,10 @@ const Hero: React.FC<HeroCardProps> = ({
           <h2 className="mb-2 cursor-pointer text-2xl font-bold tracking-tight text-gray-900 ">
             <a>{data.title}</a>
           </h2>
+          <div className="mb-5 font-light text-gray-500 dark:text-gray-400">
+            <p className="truncate w-64">{data.description}</p>
+          </div>
+
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-4">
               <img
