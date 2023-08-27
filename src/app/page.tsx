@@ -29,7 +29,7 @@ const Home = async () => {
                   currentUser={currentUser}
                   key={listing.id}
                   data={listing}
-                  nameof={listing.name}
+                  user={listing.name}
                 />
               );
             })}

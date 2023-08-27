@@ -18,7 +18,7 @@ const ListingInfo: React.FC<ListingInfoProps> = ({ user }) => {
             mt-1
           "
     >
-      <div>Hosted by {user?.name}</div>
+      <div>Written By {user?.name}</div>
       <Avatar src={user?.image} />
     </div>
   );

@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Playfair_Display, Merriweather } from "next/font/google";
+import { Sora, Merriweather } from "next/font/google";
 import Header from "./components/layout/Header";
 import LoginModal from "./components/modals/LoginModal";
 import RegisterModal from "./components/modals/RegisterModal";
@@ -8,7 +8,7 @@ import ClientOnly from "./components/ClientOnly";
 import getCurrentUser from "./actions/getCurrentUser";
 import BlogModal from "./components/modals/BlogModal";
 
-const plf = Playfair_Display({ subsets: ["latin"] });
+const plf = Sora({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Bloging Web",

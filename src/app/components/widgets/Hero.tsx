@@ -7,13 +7,14 @@ import { Listing, User } from "@prisma/client";
 import { SafeUser } from "@/app/types";
 import ClapButton from "../shared/ClapButton";
 import { useRouter } from "next/navigation";
+import FetchUserName from "../shared/FetchUserName";
 
 interface HeroCardProps {
   data: Listing;
   onAction?: (id: string) => void;
   actionId?: string;
   currentUser?: SafeUser | any;
-  nameof: User;
+  user: User;
 }
 
 const Hero: React.FC<HeroCardProps> = ({
@@ -21,7 +22,7 @@ const Hero: React.FC<HeroCardProps> = ({
   onAction,
   actionId,
   currentUser,
-  nameof,
+  user,
 }) => {
   const router = useRouter();
   return (
@@ -69,7 +70,7 @@ const Hero: React.FC<HeroCardProps> = ({
                 src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
                 alt="MuhammadKharkovavatar"
               />
-              <span className="font-medium ">{nameof?.name}</span>
+              <span className="font-medium "></span>
             </div>
             <a
               onClick={() => router.push(`/Lisitngs/${data.id}`)}
