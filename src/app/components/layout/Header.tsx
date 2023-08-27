@@ -14,12 +14,14 @@ import { signOut } from "next-auth/react";
 import { SafeUser } from "@/app/types";
 import { BiAddToQueue } from "react-icons/bi";
 import useBlogModal from "@/app/hooks/useBlogModal";
+import { useRouter } from "next/navigation";
 
 interface HeaderProps {
   currentUser?: SafeUser | null;
 }
 
 const Header: React.FC<HeaderProps> = ({ currentUser }) => {
+  const router = useRouter();
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
   const blogModal = useBlogModal();
@@ -77,8 +79,10 @@ const Header: React.FC<HeaderProps> = ({ currentUser }) => {
               <div className="flex flex-col cursor-pointer">
                 {currentUser ? (
                   <>
-                    <MenuItem onClick={() => {}} label="My Blogs" />
-                    <MenuItem onClick={() => {}} label="My Supports" />
+                    <MenuItem
+                      onClick={() => router.push("/myblogs")}
+                      label="My Blogs"
+                    />
                     <hr />
                     <MenuItem onClick={() => signOut()} label="logout" />
                   </>

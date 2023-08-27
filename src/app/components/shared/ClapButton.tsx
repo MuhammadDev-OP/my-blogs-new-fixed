@@ -24,17 +24,9 @@ const ClapButton: React.FC<ClapButtonProps> = ({ listingId, currentUser }) => {
         hover:opacity-80
         transition
         cursor-pointer
+        shadow-white
       "
     >
-      <PiHandsClappingThin
-        size={28}
-        className="
-        top-[20px]
-        -right-[4px]
-          fill-white
-          absolute
-        "
-      />
       <PiHandsClappingFill
         size={24}
         className={hasClaped ? "fill-green-500" : "fill-neutral-500/70"}

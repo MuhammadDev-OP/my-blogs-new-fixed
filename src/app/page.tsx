@@ -4,9 +4,14 @@ import getListings from "./actions/getListings";
 
 import getCurrentUser from "./actions/getCurrentUser";
 import { useRouter } from "next/navigation";
+import { IListingParams } from "./actions/getListings";
 
-const Home = async () => {
-  const listings = await getListings();
+interface HomeProps {
+  searchParams: IListingParams;
+}
+
+const Home = async ({ searchParams }: HomeProps) => {
+  const listings = await getListings(searchParams);
   const currentUser = await getCurrentUser();
 
   return (

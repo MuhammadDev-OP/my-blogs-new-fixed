@@ -41,8 +41,8 @@ const ListedBlog: React.FC<ListedBlogProps> = ({
         <div
           className="
           absolute
-          -top-[2px]
-          -right-[4px]
+          top-[10px]
+          right-[10px]
           "
         >
           <ClapButton listingId={id} currentUser={currentUser} />
