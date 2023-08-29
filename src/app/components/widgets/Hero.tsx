@@ -7,7 +7,6 @@ import { Listing, User } from "@prisma/client";
 import { SafeUser } from "@/app/types";
 import ClapButton from "../shared/ClapButton";
 import { useRouter } from "next/navigation";
-import FetchUserName from "../shared/FetchUserName";
 
 interface HeroCardProps {
   data: Listing;
@@ -64,14 +63,6 @@ const Hero: React.FC<HeroCardProps> = ({
           </div>
 
           <div className="flex justify-between items-center">
-            <div className="flex items-center space-x-4">
-              <img
-                className="w-7 h-7 rounded-full"
-                src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
-                alt="MuhammadKharkovavatar"
-              />
-              <span className="font-medium "></span>
-            </div>
             <a
               onClick={() => router.push(`/Lisitngs/${data.id}`)}
               className="inline-flex cursor-pointer items-center font-medium text-primary-600 hover:underline"
